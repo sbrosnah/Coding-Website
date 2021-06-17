@@ -3,6 +3,9 @@
       <router-view />
       <div class="footer-container">
         <a href='https://github.com/sbrosnah/creativeProject'>Github Link</a>
+        <div class="time-spent">
+          <p>Time Spent: about 25 hours</p>
+        </div>
       </div>
   </div>
 </template>
@@ -15,7 +18,13 @@
 * {
   box-sizing: border-box;
 }
-
+.time-spent{
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
 .edit {
   font-family: 'Roboto', sans-serif;
   background-color: #6495ED;
@@ -57,7 +66,7 @@
   display: flex;
   width: 100%;
   background-color: #343a40;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   height: 50px;
   margin-top: 20px;

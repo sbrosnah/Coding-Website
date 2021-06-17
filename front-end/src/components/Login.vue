@@ -7,7 +7,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="nav navbar-nav">
 
               <li class="nav-item">
                 <router-link class="nav-link" to="/">Home</router-link>
@@ -49,9 +49,10 @@
       <form>
         <input type="text" placeholder="username" v-model="username">
         <input type="text" placeholder="password" v-model="password">
-        <button type="submit" @click.prevent="login">Login</button>
+        <button class="submit" type="submit" @click.prevent="login">Login</button>
       </form>
-      <router-link class="my-signup-link" to="/signup">Don't have an account? click here to sign up</router-link>
+      <p class="my-signup-link">Don't have an account?</p>
+      <router-link class="my-signup-link" to="/signup">click here to sign up</router-link>
     </div>
   </div>
 </template>
@@ -96,6 +97,9 @@ export default {
 
 .my-signup-link {
   margin-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  color: #fff;
 }
 
 .my-login-box {
@@ -132,7 +136,7 @@ input {
   height: 10%;
 }
 
-button {
+.submit {
   margin-top: 150px;
   width: 50%;
   border-radius: 4px;
@@ -142,6 +146,12 @@ button {
 
 button:hover {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+@media only screen and (max-width: 767px) and (min-width: 300px) {
+  .my-login-box {
+    width: 300px;
+  }
 }
 
 </style>

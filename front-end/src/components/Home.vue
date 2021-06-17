@@ -38,17 +38,17 @@
       </nav>
     </div>
     <div class="home-title-container">
-      <h1 id="first-word">Welcome</h1>
-      <h1 id="second-word">To</h1>
+      <h1 class="first-word">Welcome</h1>
+      <h1 class="second-word">To</h1>
       <div class="logo-with-title">
-        <img src="/images/new-logo.png" width=170px>
+        <img class="home-title-image" src="/images/new-logo.png">
         <div class="home-title">CodeSmart</div>
       </div>
     </div>
     <router-link class="button" to="/problems">
       <div id="problems-button">
         <div class="image-container">
-          <img src="/images/problem_solving.png" width=150px>
+          <img class="home-title-image" src="/images/problem_solving.png" width=150px>
           <div class="text-container">
             <h2>Solve Problems</h2>
           </div>
@@ -58,7 +58,7 @@
     <router-link class="button" to="/chat">
       <div id="chat-button">
         <div class="image-container">
-          <img src="/images/chat.png" width=150px>
+          <img class="home-title-image" src="/images/chat.png" width=150px>
           <div class="text-container">
             <h2>Discuss Problems</h2>
           </div>
@@ -68,7 +68,7 @@
     <router-link class="button" to="/myprogress">
       <div id="check-progress-button">
         <div class="image-container">
-          <img src="/images/progress.png" width=150px>
+          <img class="home-title-image" src="/images/progress.png" width=150px>
           <div class="text-container">
             <h2>See Your Progress</h2>
           </div>
@@ -170,11 +170,11 @@ h2 {
   align-items: center;
 }
 
-#first-word {
+.first-word {
   font-size: 7em;
 }
 
-#second-word {
+.second-word {
   font-size: 3em;
 }
 
@@ -182,7 +182,29 @@ h2 {
   font-size: 8em;
 }
 
+.home-title-image{
+  width: 170px;
+}
+
 .button:hover {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+@media only screen and (max-width: 767px) and (min-width: 300px) {
+  .first-word {
+    font-size: 2em;
+  }
+  .second-word {
+    font-size: 1em;
+  }
+  .home-title {
+    font-size: 3em;
+  }
+  .home-title-image {
+    width: 100px;
+  }
+  h2 {
+    font-size: 2em;
+  }
 }
 </style>

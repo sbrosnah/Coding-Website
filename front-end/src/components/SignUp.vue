@@ -57,8 +57,9 @@
         <input type="text" placeholder="confirm password" v-model="confirmedPassword">
 
     </form>
-    <button type="submit" @click.prevent="signUp">Sign Up</button>
-    <router-link class="login-link" to="/">Have an account? click here to login</router-link>
+    <button class="submit" type="submit" @click.prevent="signUp">Sign Up</button>
+    <p class="login-link">Have an account?</p>
+    <router-link class="login-link" to="/">click here to login</router-link>
     <p v-if="error" class="error">{{error}}</p>
   </div>
 </div>
@@ -119,6 +120,9 @@ export default {
 
 .login-link {
   margin-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  color: #fff;
 }
 
 .page {
@@ -171,7 +175,7 @@ background-color: #d9534f;
 color: #fff;
 }
 
-button {
+.submit {
 margin: 50px;
 width: 50%;
 border-radius: 4px;
@@ -181,6 +185,12 @@ background-color: #6495ED;
 
 button:hover {
 box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+@media only screen and (max-width: 767px) and (min-width: 300px) {
+  .my-login-box {
+    width: 300px;
+  }
 }
 
 </style>

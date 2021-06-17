@@ -236,5 +236,13 @@ export default {
   font-family: 'Roboto', sans-serif;
 }
 
+@media only screen and (max-width: 767px) and (min-width: 300px) {
+  .title-container {
+    font-size: 3em;
+  }
+  .pure-menu-link{
+    font-size: .8em;
+  }
+}
 
 </style>

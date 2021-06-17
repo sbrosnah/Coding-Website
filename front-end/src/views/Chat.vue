@@ -93,5 +93,10 @@ export default {
   background-color: #FF69B4;
 }
 
+@media only screen and (max-width: 767px) and (min-width: 300px) {
+  .title-container {
+    font-size: 3em;
+  }
+}
 
 </style>

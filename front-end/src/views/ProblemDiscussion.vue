@@ -51,12 +51,12 @@
           <div class="code">
             <p>{{submission.code}}</p>
           </div>
-          <div v-for="comment in comments.get(submission._id)" class="comments" v-bind:key="comment._id">
+          <div v-for="thecomment in comments.get(submission._id)" class="comments" v-bind:key="thecomment._id">
             <div class="individual-comment">
-              <p class="commentText">{{comment.text}}</p>
+              <p class="commentText">{{thecomment.text}}</p>
               <div class="commentInfo">
-                <p class="commenterName">{{comment.user.firstName}} {{comment.user.lastName}}</p>
-                <p class="commentDate">{{formatDate(comment.commentCreated)}}</p>
+                <p class="commenterName">{{thecomment.user.firstName}} {{thecomment.user.lastName}}</p>
+                <p class="commentDate">{{formatDate(thecomment.commentCreated)}}</p>
               </div>
             </div>
           </div>
@@ -88,11 +88,17 @@ export default {
       submissions: [],
       comments: new Map(),
       comment: '',
-      commenting: '',
+      commenting: '.',
     }
   },
-  created() {
-    this.getInfo()
+  async created() {
+    this.loadSubmissions();
+    try {
+      let response = await axios.get('/api/users');
+      this.$root.$data.user = response.data.user;
+    } catch (error) {
+      this.$root.$data.user = null;
+    }
   },
   methods: {
     async loadSubmissions() {
@@ -107,10 +113,6 @@ export default {
           this.error = error.response.data.message;
         }
     },
-    getInfo() {
-      this.loadSubmissions();
-      this.loadSubmissions();
-    },
     formatDate(date) {
       if (moment(date).diff(Date.now(), 'days') < 15)
         return moment(date).fromNow();
@@ -122,7 +124,7 @@ export default {
         await axios.post(`/api/comments/${submission._id}`, {
           text: this.comment,
         });
-        this.loadSubmissions;
+        this.getComments(submission);
       } catch(error){
         this.error = error.response.data.message;
       }
@@ -157,7 +159,6 @@ export default {
   flex-direction: column;
 }
 
-button
 
 .submission {
   display: flex;
@@ -166,6 +167,7 @@ button
 }
 
 .comments {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   width: 70%
@@ -220,6 +222,7 @@ button
 }
 
 .text {
+  margin: 10px;
   display: flex;
   width: 80%;
 }

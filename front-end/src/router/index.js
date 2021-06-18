@@ -36,7 +36,7 @@ const routes = [
     component: MyProgress
   },
   {
-    path: '/problemdiscussion',
+    path: '/problemdiscussion/:id',
     name: 'problemdiscussion',
     component: ProblemDiscussion
   }

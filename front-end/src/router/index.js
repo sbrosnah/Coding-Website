@@ -5,6 +5,7 @@ import SignUp from '../views/SignUp.vue'
 import Problems from '../views/Problems.vue'
 import Chat from '../views/Chat.vue'
 import MyProgress from '../views/MyProgress.vue'
+import ProblemDiscussion from '../views/ProblemDiscussion.vue'
 
 Vue.use(VueRouter)
 
@@ -34,6 +35,11 @@ const routes = [
     name: 'MyProgress',
     component: MyProgress
   },
+  {
+    path: '/problemdiscussion',
+    name: 'problemdiscussion',
+    component: ProblemDiscussion
+  }
 ]
 
 const router = new VueRouter({

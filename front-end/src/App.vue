@@ -4,7 +4,7 @@
       <div class="footer-container">
         <a href='https://github.com/sbrosnah/creativeProject'>Github Link</a>
         <div class="time-spent">
-          <p>Time Spent: about 25 hours</p>
+          <p>Time Spent: about 30 hours</p>
         </div>
       </div>
   </div>

@@ -60,8 +60,8 @@
               </div>
             </div>
           </div>
-          <button class="edit" v-if="commenting != submission._id" @click.prevent="requestComment(submission)">Comment</button>
-          <div class="conditional" v-if="commenting == submission._id">
+          <button class="edit" v-if="commenting != submission._id && user" @click.prevent="requestComment(submission)">Comment</button>
+          <div class="conditional" v-if="commenting == submission._id && user">
             <textarea class="text" v-model="comment"></textarea>
             <div class="conditional-buttons">
               <button class="edit" @click.prevent="makeComment(submission)">Submit</button>
@@ -101,6 +101,14 @@ export default {
     }
   },
   methods: {
+  async logout() {
+    try {
+      await axios.delete("/api/users");
+      this.$root.$data.user = null;
+    } catch (error) {
+    this.$root.$data.user = null;
+    }
+  },
     async loadSubmissions() {
         try{
           let response = await axios.get(`/api/code/${this.problemId}`);

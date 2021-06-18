@@ -53,6 +53,7 @@
       </form>
       <p class="my-signup-link">Don't have an account?</p>
       <router-link class="my-signup-link" to="/signup">click here to sign up</router-link>
+      <p v-if="error" class="error">{{error}}</p>
     </div>
   </div>
 </template>
@@ -146,6 +147,16 @@ input {
 
 button:hover {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.error {
+  margin-top: 10px;
+  display: inline;
+  padding: 5px 20px;
+  border-radius: 30px;
+  font-size: 10px;
+  background-color: #d9534f;
+  color: #fff;
 }
 
 @media only screen and (max-width: 767px) and (min-width: 300px) {
